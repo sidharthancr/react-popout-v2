@@ -13,7 +13,7 @@ const CloseOnParentUnload = () => {
   const code = `
                 <Popout
                   id={'ex2'}
-                  url={'/popout'}
+                  url={'#/popout'}
                   reactDom={ReactDOM}
                   children={
                     <Container>
@@ -38,7 +38,7 @@ const CloseOnParentUnload = () => {
       {isOpen && (
         <Popout
           id={'ex2'}
-          url={'/popout'}
+          url={'#/popout'}
           reactDom={ReactDOM}
           children={
             <Container>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Examples from './examples'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 
 export default function App() {
   return (
-    <Router>
+    <Router basename='/react-popout-v2'>
       <div>
         <Switch>
           <Route path='/popout'>

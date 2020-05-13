@@ -13,7 +13,7 @@ const OnCloseEventCallBack = () => {
   const code = `
                 <Popout
                   id={'ex3'}
-                  url={'/popout'}
+                  url={'#/popout'}
                   reactDom={ReactDOM}
                   children={
                     <Container>
@@ -40,7 +40,7 @@ const OnCloseEventCallBack = () => {
       {isOpen && (
         <Popout
           id={'ex3'}
-          url={'/popout'}
+          url={'#/popout'}
           reactDom={ReactDOM}
           children={
             <Container>
@@ -49,8 +49,8 @@ const OnCloseEventCallBack = () => {
           }
           closeOnUnload={true}
           onClose={() => {
-            alert('On Close Event')
             setOpen(false)
+            alert('On Close Event')
           }}
         />
       )}

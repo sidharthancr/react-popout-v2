@@ -13,7 +13,7 @@ const NormalPopOut = () => {
   const code = `
                 <Popout
                   id={'ex1'}
-                  url={'/popout'}
+                  url={'#/popout'}
                   reactDom={ReactDOM}
                   children={
                     <Container>
@@ -37,7 +37,7 @@ const NormalPopOut = () => {
       {isOpen && (
         <Popout
           id={'ex1'}
-          url={'/popout'}
+          url={'#/popout'}
           reactDom={ReactDOM}
           children={
             <Container>

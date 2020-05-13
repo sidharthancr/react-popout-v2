@@ -26,7 +26,7 @@ const MyComponent = () => {
       {!isOpen && <button onClick={() => setOpen(true)}>Open Popout</button>}
       {isOpen && (
         <Popout
-          url={'/popout'}
+          url={'#/popout'}
           reactDom={ReactDOM}
           children={<div>This is a content of new popout!</div>}
           onClose={() => setOpen(false)}

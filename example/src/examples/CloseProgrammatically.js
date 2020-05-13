@@ -27,7 +27,7 @@ const CloseProgrammatically = () => {
                 )}
                 <Popout
                   id={'ex5'}
-                  url={'/popout'}
+                  url={'#/popout'}
                   reactDom={ReactDOM}
                   children={
                     <Container>
@@ -63,7 +63,7 @@ const CloseProgrammatically = () => {
         <Popout
           id={'ex5'}
           ref={childRef}
-          url={'/popout'}
+          url={'#/popout'}
           reactDom={ReactDOM}
           children={
             <Container>

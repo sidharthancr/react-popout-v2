@@ -13,7 +13,7 @@ const OnPopoutCreateCallBack = () => {
   const code = `
                 <Popout
                   id={'ex4'}
-                  url={'/popout'}
+                  url={'#/popout'}
                   reactDom={ReactDOM}
                   children={
                     <Container>
@@ -44,7 +44,7 @@ const OnPopoutCreateCallBack = () => {
       {isOpen && (
         <Popout
           id={'ex4'}
-          url={'/popout'}
+          url={'#/popout'}
           reactDom={ReactDOM}
           children={
             <Container>
