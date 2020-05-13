@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "39b8756720f42d01b3eb31278064fb4b",
+    "revision": "97fbc022771b62d2030f8d7e396f76ec",
     "url": "/react-popout-v2/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-popout-v2/static/css/2.53823a3d.chunk.css"
   },
   {
-    "revision": "51f38a4dc2608ab09c30",
+    "revision": "804fe9542619ab4db3ac",
     "url": "/react-popout-v2/static/css/main.42cc8b22.chunk.css"
   },
   {
@@ -20,12 +20,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-popout-v2/static/js/2.72d67b83.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "51f38a4dc2608ab09c30",
-    "url": "/react-popout-v2/static/js/main.991d6e7d.chunk.js"
+    "revision": "804fe9542619ab4db3ac",
+    "url": "/react-popout-v2/static/js/main.3e52a279.chunk.js"
   },
   {
     "revision": "6fce53c7c7713ebf61712cc2929746fa",
-    "url": "/react-popout-v2/static/js/main.991d6e7d.chunk.js.LICENSE.txt"
+    "url": "/react-popout-v2/static/js/main.3e52a279.chunk.js.LICENSE.txt"
   },
   {
     "revision": "8c17e63ae6bc68151bb5",
