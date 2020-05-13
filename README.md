@@ -12,6 +12,10 @@
 npm install --save react-popout-v2
 ```
 
+
+[**Demo**](https://sidharthancr.github.io/react-popout-v2/#/)
+
+
 ## Usage
 
 ```jsx
