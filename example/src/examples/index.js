@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 
 import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
@@ -12,10 +12,6 @@ import CloseProgrammatically from './CloseProgrammatically'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Examples = () => {
-  const childRef = useRef()
-
-  const [isOpen, setOpen] = useState(false)
-
   return (
     <Container>
       <Jumbotron>
