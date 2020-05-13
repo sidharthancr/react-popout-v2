@@ -26,6 +26,10 @@ const OnPopoutCreateCallBack = () => {
                                console.log("created window object", window)
                           }}
                   closeOnUnload={true}
+                  onClose={() => {
+                          setOpen(false)
+                          console.log('On Close Event')
+                        }}
                 />`
   return (
     <>
@@ -54,6 +58,10 @@ const OnPopoutCreateCallBack = () => {
           closeOnUnload={true}
           onCreate={(window) => {
             console.log('created window object', window)
+          }}
+          onClose={() => {
+            setOpen(false)
+            console.log('On Close Event')
           }}
         />
       )}

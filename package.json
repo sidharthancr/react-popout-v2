@@ -1,6 +1,6 @@
 {
   "name": "react-popout-v2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React popout is a util to handle the popout windows with ease and supports IE",
   "author": "sidharthancr",
   "license": "MIT",

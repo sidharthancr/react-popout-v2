@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const DEFAULT_OPTIONS = {
   toolbar: 'no',
-  location: 'no',
+  location: 0,
   directories: 'no',
   status: 'no',
   menubar: 'no',
