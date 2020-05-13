@@ -1,10 +1,33 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Examples from './examples'
+import Jumbotron from 'react-bootstrap/Jumbotron'
 
-import { ExampleComponent } from 'react-popout-v2'
-import 'react-popout-v2/dist/index.css'
+import Container from 'react-bootstrap/Container'
 
-const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route path='/popout'>
+            <Popout />
+          </Route>
+          <Route path='/'>
+            <Examples />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
-export default App
+function Popout() {
+  return (
+    <Jumbotron>
+      <Container>
+        <h2>Popout Page</h2>
+      </Container>
+    </Jumbotron>
+  )
+}
