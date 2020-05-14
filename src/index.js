@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 const DEFAULT_OPTIONS = {
   toolbar: 'no',
   location: 0,
+
   directories: 'no',
   status: 'no',
   menubar: 'no',
@@ -58,14 +59,15 @@ const Popout = React.forwardRef(
         addHandler(childPopoutWindow, 'load', () => {
           onPopoutWindowLoaded(childPopoutWindow)
         })
+
+        //  onPopoutWindowUnloading on before unload
+        addHandler(childPopoutWindow, 'beforeunload', onPopoutWindowUnloading)
       }
     }, [childPopoutWindow])
 
     useEffect(() => {
       if (container) {
         ReactDOM.render(children, container)
-        //  onPopoutWindowUnloading on before unload
-        addHandler(childPopoutWindow, 'unload', onPopoutWindowUnloading)
       }
     }, [container])
 

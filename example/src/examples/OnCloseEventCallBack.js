@@ -24,14 +24,13 @@ const OnCloseEventCallBack = () => {
                   }
                    onClose={() => {
                            setOpen(false)
-                           console.log('On Close Event')
+                           alert('On Close Event')
                           }}
                 />`
   return (
     <>
       <h3>Example 3:</h3>
       <p>Call back to handle the popout window close[Alert user/stop user]</p>
-      <p>Check console for Print statement on close</p>
 
       {!isOpen && (
         <Button variant='dark' onClick={() => setOpen(true)}>
@@ -51,7 +50,7 @@ const OnCloseEventCallBack = () => {
           closeOnUnload={true}
           onClose={() => {
             setOpen(false)
-            console.log('On Close Event')
+            alert('On Close Event')
           }}
         />
       )}
