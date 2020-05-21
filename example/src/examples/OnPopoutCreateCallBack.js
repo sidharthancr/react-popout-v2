@@ -55,7 +55,7 @@ const OnPopoutCreateCallBack = () => {
             </Container>
           }
           onCreate={(window) => {
-            console.log('created window object', window)
+            console.log('created window object here', window)
           }}
           onClose={() => {
             setOpen(false)

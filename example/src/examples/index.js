@@ -8,6 +8,7 @@ import CloseOnParentUnload from './CloseOnParentUnload'
 import OnCloseEventCallBack from './OnCloseEventCallBack'
 import OnPopoutCreateCallBack from './OnPopoutCreateCallBack'
 import CloseProgrammatically from './CloseProgrammatically'
+import CrossOriginUrl from './CrossOriginUrl'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -25,6 +26,7 @@ const Examples = () => {
         <OnCloseEventCallBack />
         <OnPopoutCreateCallBack />
         <CloseProgrammatically />
+        <CrossOriginUrl />
       </Jumbotron>
     </Container>
   )

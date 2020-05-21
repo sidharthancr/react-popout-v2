@@ -4,7 +4,7 @@ import React, {
   useImperativeHandle,
   useLayoutEffect
 } from 'react'
-import { addHandler, removeHandler } from './utils'
+import { addHandler, removeHandler, checkCrossOriginUrl } from './utils'
 import PropTypes from 'prop-types'
 
 const DEFAULT_OPTIONS = {
@@ -42,6 +42,7 @@ const Popout = React.forwardRef(
     const [childPopoutWindow, setChildPopoutWindow] = useState()
     const [container, setContainer] = useState()
     const ReactDOM = reactDom
+    const isCrossOriginUrl = checkCrossOriginUrl(url)
 
     // onMount open the popout
     useLayoutEffect(() => {
@@ -58,13 +59,19 @@ const Popout = React.forwardRef(
           // Close the popout on parent unload event [Refresh/Close]
           addHandler(parentWindow, 'beforeunload', onParentWindowUnload)
         }
-
-        //  Render popout component after window load
-        addHandler(childPopoutWindow, 'load', () => {
-          //  onPopoutWindowUnloading on before unload
-          addHandler(childPopoutWindow, 'beforeunload', onPopoutWindowUnloading)
-          onPopoutWindowLoaded(childPopoutWindow)
-        })
+        if (!isCrossOriginUrl) {
+          //  Render popout component after window load
+          addHandler(childPopoutWindow, 'load', () => {
+            addHandler(
+              childPopoutWindow,
+              'beforeunload',
+              onPopoutWindowUnloading
+            )
+            onPopoutWindowLoaded(childPopoutWindow)
+          })
+        }
+        // Call the onCreate call back to parent window
+        onCreate(childPopoutWindow)
       }
     }, [childPopoutWindow])
 
@@ -102,15 +109,14 @@ const Popout = React.forwardRef(
         onError()
         return
       }
-      // on window open create call back
-      onCreate(popoutWindow)
 
       if (url === 'about:blank') {
-        //  onPopoutWindowUnloading on before unload
-        addHandler(popoutWindow, 'beforeunload', onPopoutWindowUnloading)
-
         // If they have no specified a URL, then we need to forcefully call onPopoutWindowLoaded()
         onPopoutWindowLoaded(popoutWindow)
+        if (!isCrossOriginUrl) {
+          //  onPopoutWindowUnloading on before unload
+          addHandler(popoutWindow, 'beforeunload', onPopoutWindowUnloading)
+        }
       }
       setChildPopoutWindow(popoutWindow)
     }
@@ -123,7 +129,8 @@ const Popout = React.forwardRef(
     }
 
     const onPopoutWindowLoaded = (popoutWindow) => {
-      if (!container) {
+      // container not yet created and we have content[Children] to show
+      if (!container && children) {
         // Create container[parent div] if not exists
         popoutWindow.document.title = title
         const newContainer = popoutWindow.document.createElement('div')
@@ -137,7 +144,7 @@ const Popout = React.forwardRef(
       if (childPopoutWindow) {
         childPopoutWindow.close()
       }
-      removeHandler(parentWindow, 'unload', onParentWindowUnload)
+      removeHandler(parentWindow, 'beforeunload', onParentWindowUnload)
     }
 
     return null

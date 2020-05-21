@@ -112,6 +112,10 @@ Pass window object to open from given window, it default to current window objec
 
 Callback on popout creation event with param as created popout window
 
+## Note:
+Cross origin url does **not support onClose callBack and content display**.
+It opens new window and onCreate callback will be called with created popout window instance.
+
 ## License
 
 MIT © [sidharthancr](https://github.com/sidharthancr)
