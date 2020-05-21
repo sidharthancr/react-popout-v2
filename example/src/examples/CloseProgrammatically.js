@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
-
 import Alert from 'react-bootstrap/Alert'
 import Popout from 'react-popout-v2'
 

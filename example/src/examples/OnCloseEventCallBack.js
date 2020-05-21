@@ -47,7 +47,6 @@ const OnCloseEventCallBack = () => {
               <Alert variant='success'>This is a content of new popout!</Alert>
             </Container>
           }
-          closeOnUnload={true}
           onClose={() => {
             setOpen(false)
             alert('On Close Event')

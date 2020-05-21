@@ -13,7 +13,6 @@ const NormalPopOut = () => {
   const code = `
                 <Popout
                   id={'ex1'}
-                  url={'#/popout'}
                   reactDom={ReactDOM}
                   children={
                     <Container>
@@ -27,7 +26,7 @@ const NormalPopOut = () => {
   return (
     <>
       <h3>Example 1:</h3>
-      <p>Open popout and add content to it</p>
+      <p>Open popout and add content to it without URL</p>
 
       {!isOpen && (
         <Button variant='dark' onClick={() => setOpen(true)}>
@@ -37,7 +36,6 @@ const NormalPopOut = () => {
       {isOpen && (
         <Popout
           id={'ex1'}
-          url={'#/popout'}
           reactDom={ReactDOM}
           children={
             <Container>
@@ -45,6 +43,7 @@ const NormalPopOut = () => {
             </Container>
           }
           onClose={() => setOpen(false)}
+          closeOnParentUnload={true}
         />
       )}
       <Accordion className='mt-4'>

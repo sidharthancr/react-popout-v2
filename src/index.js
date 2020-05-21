@@ -1,11 +1,15 @@
-import React, { useState, useEffect, useImperativeHandle } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useImperativeHandle,
+  useLayoutEffect
+} from 'react'
 import { addHandler, removeHandler } from './utils'
 import PropTypes from 'prop-types'
 
 const DEFAULT_OPTIONS = {
   toolbar: 'no',
   location: 0,
-
   directories: 'no',
   status: 'no',
   menubar: 'no',
@@ -40,7 +44,7 @@ const Popout = React.forwardRef(
     const ReactDOM = reactDom
 
     // onMount open the popout
-    useEffect(() => {
+    useLayoutEffect(() => {
       openPopoutWindow()
 
       //  onUnmount close the popout
@@ -57,11 +61,10 @@ const Popout = React.forwardRef(
 
         //  Render popout component after window load
         addHandler(childPopoutWindow, 'load', () => {
+          //  onPopoutWindowUnloading on before unload
+          addHandler(childPopoutWindow, 'beforeunload', onPopoutWindowUnloading)
           onPopoutWindowLoaded(childPopoutWindow)
         })
-
-        //  onPopoutWindowUnloading on before unload
-        addHandler(childPopoutWindow, 'beforeunload', onPopoutWindowUnloading)
       }
     }, [childPopoutWindow])
 
@@ -103,6 +106,9 @@ const Popout = React.forwardRef(
       onCreate(popoutWindow)
 
       if (url === 'about:blank') {
+        //  onPopoutWindowUnloading on before unload
+        addHandler(popoutWindow, 'beforeunload', onPopoutWindowUnloading)
+
         // If they have no specified a URL, then we need to forcefully call onPopoutWindowLoaded()
         onPopoutWindowLoaded(popoutWindow)
       }

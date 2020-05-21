@@ -25,7 +25,6 @@ const OnPopoutCreateCallBack = () => {
                   onCreate={(window) => {
                                console.log("created window object", window)
                           }}
-                  closeOnUnload={true}
                   onClose={() => {
                           setOpen(false)
                           console.log('On Close Event')
@@ -55,7 +54,6 @@ const OnPopoutCreateCallBack = () => {
               <Alert variant='success'>This is a content of new popout!</Alert>
             </Container>
           }
-          closeOnUnload={true}
           onCreate={(window) => {
             console.log('created window object', window)
           }}
